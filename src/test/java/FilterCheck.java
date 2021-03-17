@@ -22,17 +22,15 @@ public class FilterCheck {
         //Configuration.holdBrowserOpen = true;
         //open Trendyol
         open("http://www.trendyol.com/");
-        Thread.sleep(5000);
-        $(".fancybox-item.fancybox-close").click();
 
-        Thread.sleep(5000);
+        $(".fancybox-item.fancybox-close").click();
+        new TyHomePage();
         //search Sateen
         $(".search-box-container").find(".search-box").sendKeys("Sateen");
-        Thread.sleep(5000);
         $(".search-box-container").find(".search-icon").click();
 
         //Filter man
-        $$(".fltr-item-wrppr").findBy(text("Erkek")).click();
+        checkClickable(2);
         //Thread.sleep(6000);
         //List a = $$(".prdct-desc-cntnr-name");
         List<SelenideElement> titles =  $$(".prdct-desc-cntnr-name");
@@ -44,4 +42,18 @@ public class FilterCheck {
 
 
     }
+
+    public void checkClickable(int try_no){
+        for (int i=0; i<try_no;i++ ) {
+            try {
+                $$(".fltr-item-wrppr").findBy(text("Erkek")).click();
+                break;
+            } catch (Exception e ) {
+                $(".dscrptn").click();
+            }
+        }
+    }
+
+
+
 }

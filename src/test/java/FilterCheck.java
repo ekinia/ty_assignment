@@ -23,13 +23,9 @@ public class FilterCheck {
         page.clickDescription();
         page.clickFilterMan();
         List<SelenideElement> titles = page.getListResult();
-        boolean isTitle = false;
         for (SelenideElement element : titles) {
-            if (element.text().contains("Kadın")) {
-                isTitle = true;
-                break;
-            }
+            Assert.assertFalse(element.text().contains("Kadın"), "Filtreleme için Erkek seçili olmasına rağmen Kadın ürünleri de listelendi.");
         }
-        Assert.assertTrue(isTitle, "Filtreleme için Erkek seçili olmasına rağmen Kadın ürünleri de listelendi.");
+
     }
     }

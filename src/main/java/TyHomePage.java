@@ -18,8 +18,7 @@ public class TyHomePage extends BasePage {
         btnClosePopup.click();
     }
     public void setSearchText(String searchText) {
-        txtSearch.sendKeys(searchText);
-        txtSearch.sendKeys(Keys.ENTER);
+        txtSearch.val(searchText).pressEnter();
     }
     public void clickFilterMan() {
         chkFilterMan.click();

@@ -11,7 +11,6 @@ public class TyHomePage extends BasePage {
     private SelenideElement chkFilterMan = $$(".fltr-item-wrppr").findBy(text("Erkek"));
     private SelenideElement lblDescription = $(".dscrptn");
     public TyHomePage(){
-        super();
         open("http://www.trendyol.com/");
     }
 
